@@ -1,0 +1,29 @@
+{
+  "name": "techdegree_project8_SQLLibraryManager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sblondell/techdegree_project8_SQLLibraryManager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sblondell/techdegree_project8_SQLLibraryManager/issues"
+  },
+  "homepage": "https://github.com/sblondell/techdegree_project8_SQLLibraryManager#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "express": "^4.16.4",
+    "pug": "^2.0.3",
+    "sequelize": "^5.1.0",
+    "sequelize-cli": "^5.4.0",
+    "sqlite3": "^4.0.6"
+  }
+}
