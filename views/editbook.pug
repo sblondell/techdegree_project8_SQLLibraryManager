@@ -1,5 +1,41 @@
 extends layout.pug
 
+block title
+  title Edit
 block content
-  h2 EDIT BOOK
-  h3 EDITING BOOK: #{bookid}
+  h1 Would you like to push the edit through?
+  form(action="/books", method="post")
+    table
+      thead
+        th 
+        th Before
+        th After  
+      tbody
+        tr
+          td Title
+          td= oldBook.title
+          td
+            input(readonly, name="title", type="text", id="title", value=modifiedBook.title)
+        tr
+          td Author
+          td= oldBook.author
+          td 
+            input(readonly, name="author", type="text", id="author", value=modifiedBook.author)
+        tr
+          td Year
+          td= oldBook.year
+          td 
+            input(readonly, name="year", type="text", id="year", value=modifiedBook.year)
+        tr
+          td Genre
+          td= oldBook.genre
+          td
+            input(readonly, name="genre", type="text", id="genre", value=modifiedBook.genre)
+    br
+    p
+      input(type="submit", value="Yes")
+    p
+      input(name="caller", value="edit", type="hidden")
+      input(name="bookid", value=`${bookid}`, type="hidden")
+      a(href="/books?caller=edit", class="button") No
+    

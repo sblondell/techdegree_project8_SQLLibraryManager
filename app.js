@@ -1,10 +1,12 @@
 let express = require('express');
-
+let bodyParser = require('body-parser');
 let app = express();
 let routes = require('./routes/index');
 let books = require('./routes/books');
 let sequelize = require('./models').sequelize;
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.set('view engine', 'pug');
 app.use('/static', express.static('public'));
 

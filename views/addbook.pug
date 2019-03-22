@@ -1,4 +1,25 @@
 extends layout.pug
 
+block title
+  title Library Manager - Add Book
+
 block content
-  h2 ADD BOOK
+  h1 Add a Book
+  form(action="/books", method="post")
+    p
+      label(for="title") Title
+      input(name="title", type="text", id="title")
+    p 
+      label(for="author") Author
+      input(name="author", type="text", id="author")
+    p
+      label(for="year") Year
+      input(name="year", type="text", id="year")
+    p    
+      label(for="genre") Genre
+      input(name="genre", type="text", id="genre")
+    p
+      input(name="caller", value="addbook", type="hidden")
+      input(type="submit", value="Create New Book")
+    p
+      a(href="/", class="button") Cancel

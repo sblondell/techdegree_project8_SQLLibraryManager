@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/sblondell/techdegree_project8_SQLLibraryManager#readme",
   "devDependencies": {},
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "pug": "^2.0.3",
     "sequelize": "^5.1.0",
