@@ -1,5 +1,5 @@
-extends layout.pug
-
-block content
-  h2 FORM ERROR
-  h3 The book id is: #{bookid}
+if(errors)
+  h2 Please review the error messages...
+  ul
+    each error in errors
+      li.error= error.message
