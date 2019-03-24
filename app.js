@@ -14,21 +14,20 @@ app.use('/', routes);
 app.use('/books', books);
 
 
-
 sequelize.sync().then(() => {
   app.listen(3000);
 });
 
-app.use((req, res, next) => {              
-    const err = new Error("Page not found.");
-    err.status = 404;                        
-    next(err);                               
-});                                        
-app.use((err, req, res, next) => {         
-    res.status(err.status || 500);           
-    console.error(err);                      
-    res.render('error', {error: err});       
-});                                        
+app.use((req, res, next) => {
+  const err = new Error("Page not found.");
+  err.status = 404;
+  next(err);
+});
+app.use((err, req, res, next) => {
+  res.status(err.status || 500);
+  console.error(err);
+  res.render('error', { error: err });
+});
 
 
 module.exports = app;

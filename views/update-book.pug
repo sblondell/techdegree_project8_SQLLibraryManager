@@ -14,22 +14,26 @@ block content
         th After  
       tbody
         tr
-          td Title
+          td
+            label(for="title") Title
           td= oldBook.title
           td
             input(name="title", type="text", id="title", value=newBook.title)
         tr
-          td Author
+          td
+            label(for="author") Author
           td= oldBook.author
           td 
             input(name="author", type="text", id="author", value=newBook.author)
         tr
-          td Year
+          td
+            label(for="year") Year
           td= oldBook.year
           td 
             input(name="year", type="text", id="year", value=newBook.year)
         tr
-          td Genre
+          td
+            label(for="genre") Genre
           td= oldBook.genre
           td
             input(name="genre", type="text", id="genre", value=newBook.genre)

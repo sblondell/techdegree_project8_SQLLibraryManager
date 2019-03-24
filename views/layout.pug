@@ -7,7 +7,21 @@ html(class="no-js" lang="en" dir="ltr")
     block title
     link(rel='stylesheet', href='/static/stylesheets/style.css')                                                     
   body                                                                                                       
-    h1 LIBRARY MANAGER
+    div
+      a(href='/')
+        h1 LIBRARY MANAGER
+      div
+        form(action="/books/search", method="post")
+          input(type="text", placeholder="Search...", id="search", name="search", class="search_input")
+          label Search Criteria    
+            select(required, name="search_option")
+              option(value="title") Title
+              option(value="author") Author
+              option(value="year") Year
+              option(value="genre") Genre
+          input(type="submit", value="Search")
     hr
-
-    block content
+    div
+      block content
+    footer 
+      block footer

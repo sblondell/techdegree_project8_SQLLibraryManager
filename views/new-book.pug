@@ -6,7 +6,7 @@ block title
 block content
   h1 Add a Book
   include formerror
-  form(action="/books", method="post")
+  form(action="/books/new", method="post")
     p
       label(for="title") Title
       input(name="title", type="text", id="title", value=book.title)
