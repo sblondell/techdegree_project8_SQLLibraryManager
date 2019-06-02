@@ -96,6 +96,15 @@ input[type=text] {
   color: rgb(236, 15, 15);
 }
 
+
+
+/* MAIN BOOK LISTING PAGE */
+
+.main-page {
+  display: block;
+}
+
+
 /* SEARCH FORM */
 
 .search_input {
@@ -105,11 +114,6 @@ input[type=text] {
 
 
 /* PAGINATION */
-
-.pagination {
-  position: absolute;
-  bottom: 5%;
-}
 
 li.page_index {
   display: inline;

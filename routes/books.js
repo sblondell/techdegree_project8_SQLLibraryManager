@@ -1,17 +1,17 @@
 let express = require('express');
-let sequelize = require('../models').sequelize;
 let router = express.Router();
+let sequelize = require('../models').sequelize;
 let Book = require('../models').Book;
 
-const perPage = 10;
+const perPage = 10; // Used for pagination
 
-/* A function used for paginating a list.
+/* A function used for paginating a list and returning the appropriate list items.
  * @param   {Array}   books - an array of SQL entries in JSON format
  * @param   {Integer} perPage - the number of book entries to break the list into per page
  * @param   {Integer} page - the page to display (not array syntax - page 1 = index 1 = page 2)
- * @return  {Array}   newBooks - an array of the partition of the list
+ * @return  {Array}   newBooks - an array of the list partition
 */
-function getMeAPage(books, perPage, page = 1) {
+function get_me_a_page(books, perPage, page = 1) {
   const newBooks = [];
   const start = (page - 1) * perPage;
   const finish = start + perPage;
@@ -30,10 +30,13 @@ function getMeAPage(books, perPage, page = 1) {
 // ***************************************
 //              Homepage.
 // ***************************************
+router.get('/', (req, res) => {
+  res.redirect('/books/page/1');
+});
 router.get('/page/:pageNum?', (req, res) => {
   Book.findAll().then(response => {
     const pages = Math.ceil(response.length / perPage);
-    const books = getMeAPage(response, perPage, req.params.pageNum);
+    const books = get_me_a_page(response, perPage, req.params.pageNum);
 
     res.render('index', {
       books,
@@ -145,7 +148,7 @@ router.post('/search', (req, res) => {
     { type: sequelize.QueryTypes.SELECT })
     .then(response => {
       const pages = Math.ceil(response.length / perPage);
-      const books = getMeAPage(response, perPage);
+      const books = get_me_a_page(response, perPage);
 
       res.render('index', {
         books,

@@ -4,10 +4,11 @@ block title
   title Library Manager - Books
 
 block content
-  h1 Books
-  p
-    a(href="/books/new", class="button") Create New Book
-  table
+  div(class="main-page")
+    h1 Books
+    p(class="main-page")
+      a(href="/books/new", class="button") Create New Book
+  table(class="main-page")
     thead
       th Title
       th Author
@@ -21,6 +22,4 @@ block content
           td= book.author
           td= book.genre 
           td= book.year
-
-block footer
   include pagination

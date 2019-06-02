@@ -13,7 +13,6 @@ app.use('/static', express.static('public'));
 app.use('/', routes);
 app.use('/books', books);
 
-
 sequelize.sync().then(() => {
   app.listen(3000);
 });
