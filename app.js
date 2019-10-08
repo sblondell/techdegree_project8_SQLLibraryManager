@@ -4,7 +4,9 @@ let app = express();
 let routes = require('./routes/index');
 let books = require('./routes/books');
 let sequelize = require('./models').sequelize;
+const cors = require('cors');
 
+app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set('view engine', 'pug');
@@ -28,5 +30,11 @@ app.use((err, req, res, next) => {
   res.render('error', { error: err });
 });
 
+app.set('port', process.env.PORT || 3000);
+
+// start listening on our port
+const server = app.listen(app.get('port'), () => {
+    console.log(`Express server is listening on port ${server.address().port}`);
+});
 
 module.exports = app;
